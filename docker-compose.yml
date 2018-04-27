@@ -8,5 +8,6 @@ services:
   ports:
    - "8080:80"
   volumes:
-   - wallet_build:/bitshares-ui/build/dist
+   - ./wallet_build:/bitshares-ui/build/dist
+   - ./www:/var/www
    - .:/bitshares-ui
