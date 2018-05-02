@@ -1,3 +1,4 @@
+require("dotenv").load();
 var path = require("path");
 var webpack = require("webpack");
 var express = require("express");
@@ -43,10 +44,15 @@ var options = {
     cert: fs.readFileSync("./ssl/server.crt")
 };
 
-http.createServer(app).listen(8080);
-https.createServer(options, app).listen(8085);
+process.env.SERVER_APP_PORT = process.env.SERVER_APP_PORT || 8080;
+process.env.SERVER_APP_SSL_PORT = process.env.SERVER_APP_SSL_PORT || 8085;
+http.createServer(app).listen(process.env.SERVER_APP_PORT);
+https.createServer(options, app).listen(process.env.SERVER_APP_SSL_PORT);
 
-console.log("Listening at http://localhost:8080/ or https://localhost:8085/");
+console.log(
+    `Listening at http://localhost:${process.env.SERVER_APP_PORT}/` +
+        ` or https://localhost:${process.env.SERVER_APP_SSL_PORT}/`
+);
 // new WebpackDevServer(compiler, {
 //     publicPath: config.output.publicPath,
 //     hot: true,

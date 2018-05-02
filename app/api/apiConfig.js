@@ -51,6 +51,10 @@ export const settingsAPIs = {
         },
         {url: "ws://127.0.0.1:8090", location: "Locally hosted"},
         {
+            url: "wss://www.wallet.aegissmartcontracts.com/api/ws",
+            location: "AEgis - Frankfurt"
+        },
+        {
             url: "wss://bitshares.openledger.info/ws",
             location: "Nuremberg, Germany"
         },

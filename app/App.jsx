@@ -25,11 +25,23 @@ import WalletManagerStore from "stores/WalletManagerStore";
 import Incognito from "./components/Layout/Incognito";
 import {isIncognito} from "feature_detect";
 import {updateGatewayBackers} from "common/gatewayUtils";
+import {ChainConfig} from "bitsharesjs-ws";
 
 class App extends React.Component {
     constructor(props) {
         super();
+        console.log("=====================");
+        ChainConfig.address_prefix = "AGS";
+        ChainConfig.core_asset = "AGS";
+        ChainConfig.networks.AEgis = {
+            core_asset: "AGS",
+            address_prefix: "AGS",
+            chain_id:
+                "a1f1444cc2cca678d452e9cdb7daefa4a1b2567a5f0aa09eaa846d759f827e3e"
+        };
 
+        console.log(ChainConfig);
+        console.log("=====================");
         // Check for mobile device to disable chat
         const user_agent = navigator.userAgent.toLowerCase();
         let isSafari = /^((?!chrome|android).)*safari/i.test(
