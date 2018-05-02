@@ -10,12 +10,12 @@ import {connect} from "alt-react";
 import cnames from "classnames";
 import Icon from "../Icon/Icon";
 
-const autoSelectAPI = "wss://fake.automatic-selection.com";
+const autoSelectAPI = settingsAPIs.DEFAULT_WS_NODE;
 const testnetAPI = settingsAPIs.WS_NODE_LIST.find(
-    a => a.url.indexOf("node.testnet.bitshares.eu") !== -1
+    a => a.url.indexOf("www.wallet.aegissmartcontracts.com") !== -1
 );
 const testnetAPI2 = settingsAPIs.WS_NODE_LIST.find(
-    a => a.url.indexOf("testnet.nodes.bitshares.ws") !== -1
+    a => a.url.indexOf("www.wallet.aegissmartcontracts.com") !== -1
 );
 
 /**
